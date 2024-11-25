@@ -1,0 +1,93 @@
+
+<title>Registrar Documentos</title>
+ 
+<h1>Registrar Documentos</h1>
+<h2>Documentación</h2>
+
+<div id="pn_id_134" class="mt-3 p-datatable p-component p-datatable-scrollable">
+  <div class="p-datatable-wrapper" style="max-height: 400px;">
+    <table role="table" id="pn_id_134-table" class="p-datatable-table p-datatable-scrollable-table">
+      <thead role="rowgroup" class="p-datatable-thead custom-header">
+        <tr>
+          <th pfrozencolumn="" class="p-element p-frozen-column">N°</th>
+          <th alignfrozen="left" pfrozencolumn="" class="p-element">Nombre</th>
+          <th>Fecha</th>
+          <th>Subir</th>
+          <th>Plantilla</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody role="rowgroup" class="p-element p-datatable-tbody">
+        <tr>
+          <td pfrozencolumn="" class="p-element font-bold p-frozen-column">001</td>
+          <td alignfrozen="left" pfrozencolumn="" class="p-element">Documento 1</td>
+          <td>2019-02-09</td>
+          <td>
+            <!-- Botón de "Subir" que activará el input de archivo -->
+            <button class="btn-upload" onclick="document.getElementById('fileInput').click()">
+              <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" width="20" class="icon">
+              Subir
+            </button>
+            <!-- Input de archivo, solo permite PDF -->
+            <input type="file" id="fileInput" style="display: none;" accept=".pdf" onchange="uploadFile(event)">
+          </td>
+
+          <td>
+            <a href="https://drive.google.com/file/d/ID_DEL_DOCUMENTO/view" target="_blank">
+              <img src="https://th.bing.com/th/id/R.2f64586915375d7d24c07a1c49f87c8b?rik=68LQSivSP3PHhA&pid=ImgRaw&r=0"
+                width="30" class="flag flag-eg">
+              <span class="image-text ml-2">Plantilla</span>
+            </a>
+          </td>
+
+
+          <td>
+            <span class="customer-badge status-pending">
+              <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="20" class="icon">
+              pendiente
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2>Supervisor empresarial</h2>
+
+<!-- Formulario con cuadro -->
+<div class="form-container">
+<div class="form-group">
+  <h5 class="label-orange">Nombre</h5>
+  <input 
+    type="text" 
+    placeholder="Nombre" 
+    class="p-inputtext p-component p-element">
+</div>  
+
+<div class="form-group">
+  <h5 class="label-orange">Teléfono</h5>
+  <input 
+    type="tel" 
+    placeholder="Teléfono" 
+    class="p-inputtext p-component p-element" 
+    pattern="[0-9]*" 
+    maxlength="15" 
+    title="Ingresa solo números">
+</div>
+
+<div class="form-group">
+  <h5 class="label-orange">Correo Electrónico</h5>
+  <input 
+    type="email" 
+    placeholder="Correo Electrónico" 
+    class="p-inputtext p-component p-element" 
+    required 
+    title="Ingresa un correo válido">
+</div>
+</div>
+
+<div class="form-footer">
+<button id="saveButton" class="btn-save">Guardar y Enviar</button>
+</div>
+

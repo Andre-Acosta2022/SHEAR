@@ -1,0 +1,50 @@
+
+
+.card {
+    background-color: #002D72;
+    margin-top: -8px;
+  }
+  
+  .flex {
+    background-color: #002D72;
+    font-size: medium;
+    color: white;
+  }
+  
+  .p-menu .p-menuitem-link:hover {
+    background-color: #FFC107 !important;
+    color: white !important;
+  }
+  
+  .p-menu .p-menuitem-link {
+    transition: background-color 0.3s ease !important;
+  }
+  
+  
+  ::ng-deep .p-submenu-header {
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    color: #0062ff;
+    background-color:transparent; /* Cambia el color de fondo aquí */
+    font-weight: 700;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .p-menuitem-link {
+    color: white; /* Color del texto de los enlaces en el menú */
+    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo */
+  }
+  
+  .p-menuitem-link .p-menuitem-icon {
+    color: white; /* Color de los íconos en el menú */
+  }
+  
+  /* Efecto hover */
+  .p-menuitem-link:hover {
+    background-color: #FFC107 !important; /* Cambia el fondo al color deseado */
+    color: white !important; /* Asegúrate de que el texto sea blanco al hacer hover */
+  }
+  
+  .p-menuitem-link:hover .p-menuitem-icon {
+    color: white !important; /* Asegúrate de que los íconos sean blancos al hacer hover */
+  }

@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('/media/Inter-roman.var.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  ::ng-deep .custom-icon-color .pi-filter-fill {
+    color: orange; /* Cambia el color del ícono a naranja */
+  }
+  .btn-crear {
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 10px 15px;
+    border-radius: 8px;
+  }
+  
+  .custom-icon-color {
+    background-color: #0cb41a; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+  }
+  
+  .custom-icon-color:hover {
+    background-color: #12701a; /* Fondo más oscuro al pasar el cursor */
+    color: white;
+  }
+  .custom-icon1-color {
+    background-color: #f08409; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+  }
+  
+  .custom-icon1-color:hover {
+    background-color: #d37000; /* Fondo más oscuro al pasar el cursor */
+    color: white;
+  }
+  

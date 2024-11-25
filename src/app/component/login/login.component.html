@@ -1,0 +1,98 @@
+<div
+  class="login-screen"
+  [style]="{
+    height: '100vh',
+    'background-image': 'url(\'image.png\')',
+    'background-size': 'cover',
+    'background-position': 'center',
+    display: 'flex',
+    'justify-content': 'flex-end',
+    'align-items': 'center'
+  }"
+>
+  <div
+    class="card flex justify-content-center shadow-3"
+    [style]="{ 'max-width': '460px', margin: '0 40px' }"
+  >
+    <p-card class="p-3" [style]="{ width: '100%' }">
+      <!-- Encabezado con imagen y título centrados -->
+      <ng-template pTemplate="header">
+        <div class="text-center">
+          <img
+            alt="Card"
+            src="04.webp"
+            class="mt-3 mb-3 w-6 h-6 border-circle"
+          />
+          <h2 class="fw-bold mb-1 text-uppercase text-center">
+            Iniciar Sesión
+          </h2>
+          <p class="text-center text-600">
+            Por favor ingrese sus credenciales correspondientes
+          </p>
+        </div>
+      </ng-template>
+
+      <!-- Formulario de inputs con bordes y padding adicionales -->
+      <div class="flex flex-column align-items-center gap-3 py-3 px-4">
+        <div class="flex flex-column align-items-start gap-2 w-full">
+          <label for="username" class="font-bold text-900">Usuario:</label>
+          <p-inputGroup>
+            <p-inputGroupAddon>
+              <i class="pi pi-user"></i>
+            </p-inputGroupAddon>
+            <input pInputText placeholder="Username" />
+          </p-inputGroup>
+        </div>
+        <div class="flex flex-column align-items-start gap-2 w-full">
+          <label for="username" class="font-bold text-900">Contraseña:</label>
+          <p-inputGroup>
+            <p-inputGroupAddon>
+              <i class="pi pi-key"></i>
+            </p-inputGroupAddon>
+            <input pInputText placeholder="Password" />
+          </p-inputGroup>
+        </div>
+      </div>
+
+      <!-- Enlace de "Olvidó su contraseña" con estilo simplificado -->
+      <ng-template pTemplate="footer">
+        <p class="text-center mt-4 mb-1">
+          <a
+            href="#"
+            (click)="showRecoverView()"
+            class="text-600 no-underline hover:underline"
+            >¿Olvidó su contraseña?</a
+          >
+        </p>
+
+        <div class="flex justify-content-center mt-3">
+            <button class="btn-custom">
+                <i class="pi pi-user"></i> <!-- Icono de PrimeIcons -->
+                Login
+            </button>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+<!-- Diálogo para recuperación de contraseña -->
+<p-dialog
+  header="Recuperar Contraseña"
+  [(visible)]="isrecuperarview"
+  [modal]="true"
+  [responsive]="true"
+>
+  <div class="dialog-content">
+    <label for="email">Ingrese su correo electrónico:</label>
+    <input
+      type="email"
+      id="email"
+      [(ngModel)]="userayudaObj.EmailId"
+      placeholder="Correo electrónico"
+    />
+    <div class="dialog-footer">
+      <p-button label="Enviar" (click)="onSubmitRecovery()" />
+      <p-button label="Cancelar" (click)="isrecuperarview = false" />
+    </div>
+  </div>
+</p-dialog>

@@ -1,0 +1,110 @@
+<section class="config-section">
+  <p-tabView>
+    <!-- Configuración del Sistema -->
+    <p-tabPanel header="Configuración del Sistema">
+      <div class="form-group">
+        <label for="backgroundColor">Color de Fondo</label>
+        <input id="backgroundColor" type="color" [(ngModel)]="backgroundColor" />
+      </div>
+
+      <div class="form-group">
+        <label for="fontSize">Tamaño de Letra</label>
+        <p-inputNumber 
+          id="fontSize" 
+          [(ngModel)]="fontSize" 
+          [min]="10" 
+          [max]="30" 
+          [step]="1" 
+          mode="decimal" 
+          suffix=" px">
+        </p-inputNumber>
+      </div>
+
+      <div class="form-actions">
+        <button pButton label="Guardar" icon="pi pi-save" class="p-button-success" (click)="saveSystemConfig()"></button>
+        <button pButton label="Cancelar" icon="pi pi-times" class="p-button-secondary" (click)="resetSystemConfig()"></button>
+      </div>
+    </p-tabPanel>
+
+    <!-- Importar Empresas -->
+    <p-tabPanel header="Importar Empresas">
+      <div class="form-group">
+        <label for="fileUploadEmpresa">Subir archivo Excel</label>
+        <p-fileUpload 
+          id="fileUploadEmpresa" 
+          name="file" 
+          mode="basic" 
+          accept=".xlsx" 
+          chooseLabel="Seleccionar Archivo" 
+          (onUpload)="importEmpresas($event)">
+        </p-fileUpload>
+      </div>
+    </p-tabPanel>
+
+    <!-- Importar Personas -->
+    <p-tabPanel header="Importar Personas">
+      <div class="form-group">
+        <label for="fileUploadPersonas">Subir archivo Excel</label>
+        <p-fileUpload 
+          id="fileUploadPersonas" 
+          name="file" 
+          mode="basic" 
+          accept=".xlsx" 
+          chooseLabel="Seleccionar Archivo" 
+          (onUpload)="importPersonas($event)">
+        </p-fileUpload>
+      </div>
+    </p-tabPanel>
+
+    <!-- Gestión de Usuarios -->
+    <p-tabPanel header="Gestión de Usuarios">
+      <div class="form-group">
+        <label for="userName">Nombre de Usuario</label>
+        <input id="userName" type="text" pInputText [(ngModel)]="userName" />
+      </div>
+
+      <div class="form-group">
+        <label for="userPassword">Contraseña</label>
+        <input id="userPassword" type="password" pInputText [(ngModel)]="userPassword" />
+      </div>
+
+      <div class="form-group">
+        <label for="userPhoto">Foto de Perfil</label>
+        <p-fileUpload 
+          id="userPhoto" 
+          name="photo" 
+          mode="basic" 
+          accept="image/*" 
+          chooseLabel="Seleccionar Foto" 
+          (onUpload)="uploadPhoto($event)">
+        </p-fileUpload>
+      </div>
+
+      <div class="form-actions">
+        <button pButton label="Guardar" icon="pi pi-save" class="p-button-success" (click)="saveUserData()"></button>
+      </div>
+    </p-tabPanel>
+
+    <!-- Acceso -->
+    <p-tabPanel header="Acceso">
+      <div class="form-group">
+        <label for="role">Rol</label>
+        <p-dropdown 
+          id="role" 
+          [options]="roles" 
+          [(ngModel)]="selectedRole" 
+          placeholder="Selecciona un rol">
+        </p-dropdown>
+      </div>
+
+      <div class="form-group">
+        <label for="accessPermissions">Permisos</label>
+        <textarea id="accessPermissions" rows="5" pInputTextarea [(ngModel)]="permissions"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button pButton label="Guardar" icon="pi pi-save" class="p-button-success" (click)="saveAccessData()"></button>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</section>

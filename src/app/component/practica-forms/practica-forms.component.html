@@ -1,0 +1,51 @@
+<div class="modal-background" (click)="cerrarpractica()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <h2>{{ titulos }}</h2>
+
+    <div class="modal-content">
+      <!-- Datos de la Empresa -->
+      <section class="section">
+        <p class="section-title">Datos de la Empresa</p>
+        <div class="row">
+          <div class="column">
+            <label for="empresa">Empresa:</label>
+            <p-dropdown 
+              [options]="empresa" 
+              [(ngModel)]="practicas.empresa" 
+              optionLabel="nombre" 
+              placeholder="Seleccione Empresa" 
+              class="flex-auto">
+            </p-dropdown>
+          </div>
+          <div class="column">
+            <label for="linea">Línea:</label>
+            <p-dropdown 
+              [options]="linea" 
+              [(ngModel)]="practicas.linea" 
+              optionLabel="nombre" 
+              placeholder="Seleccione Línea" 
+              class="flex-auto">
+            </p-dropdown>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fechas -->
+      <section class="section">
+        <p class="section-title">Fechas</p>
+        <div class="row">
+          <div class="column">
+            <label for="fecha_inicio">Fecha Inicio:</label>
+            <input type="date" [(ngModel)]="practicas.fecha_inicio" class="form-control" />
+          </div> 
+        </div>
+      </section>
+
+      <!-- Botones -->
+      <div class="row buttons">
+        <p-button label="Cancelar" icon="pi pi-times" severity="secondary" (click)="cerrarpractica()"></p-button>
+        <p-button label="Guardar" icon="pi pi-check" (click)="opcion()"></p-button>
+      </div>
+    </div>
+  </div>
+</div>

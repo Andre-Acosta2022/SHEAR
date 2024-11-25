@@ -1,0 +1,57 @@
+<div class="modal-background" (click)="cerrarModal()"></div>
+<div class="modal-container">
+  <div class="modal-content">
+    <p>Datos del Representante</p>
+    <!-- Sección: Datos del Representante -->
+    <section class="section">
+      <div class="row">
+        <div class="column">
+          <label>Representante Legal</label>
+          <br />
+          <input
+            pInputText
+            [(ngModel)]="representantes.nombre"
+            type="text"
+            placeholder="Representante Legal"
+            class="form-control"
+          />
+        </div>
+        <div class="column">
+          <label>Cargo</label>
+          <br />
+          <input
+            pInputText
+            [(ngModel)]="representantes.cargo"
+            type="text"
+            placeholder="CEO"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <label>Correo electrónico</label>
+          <br />
+          <input
+            pInputText
+            [(ngModel)]="representantes.email"
+            type="email"
+            placeholder="ejemplo@gmail.com"
+            class="form-control"
+          />
+        </div>
+        <div class="column">
+          <label>Teléfono</label>
+          <br />
+          <input
+            pInputText
+            [(ngModel)]="representantes.telefono"
+            type="tel"
+            placeholder="000-000-000"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

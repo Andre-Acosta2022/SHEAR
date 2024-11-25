@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('/media/Inter-roman.var.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  .btn-custom {
+    background-color: #002D72; /* Color de fondo rojo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-weight: bold; /* Negrita */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    display: flex; /* Permite alinear el icono y el texto */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.btn-custom i {
+    margin-right: 0.5rem; /* Espacio entre el icono y el texto */
+}
+
+.btn-custom:hover {
+    background-color: #FFC107; /* Color de fondo en hover */
+color:#002D72;
+  }
+  .pi-key{
+ color: white;
+  }
+  .pi-user{
+    color: white;
+     }
+  p-inputGroupAddon{
+    background-color:#002D72 ;
+  }

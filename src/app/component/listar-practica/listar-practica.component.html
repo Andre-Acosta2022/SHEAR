@@ -1,0 +1,98 @@
+<div
+  [style]="{
+    display: 'flex',
+    'justify-content': 'center',
+    'align-items': 'center',
+    'flex-direction': 'column',
+    'margin-top': '60px'
+  }"
+>
+<div
+  class="button-container flex flex-end"
+  [ngStyle]="{
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    gap: '20px',
+    marginRight: '20px'
+  }"
+>
+  <button
+    pButton
+    pRipple
+    [raised]="true"
+    type="button"
+    icon="pi pi-building"
+    class="btn-crear  custom-icon-color m-5"
+    (click)="abrirempresa()"
+    label="Registrar nueva Empresa"
+  ></button>
+
+  <button
+    pButton
+    pRipple
+    [raised]="true"
+    type="button"
+    icon="pi pi-plus"
+    class="btn-crear custom-icon1-color"
+    (click)="abrirpractica()"
+    label="Crear Práctica"
+  ></button>
+</div>
+
+
+  <p-table
+    [value]="empresa"
+    [paginator]="true"
+    [rows]="10"
+    [responsive]="true"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    [rowsPerPageOptions]="[5, 10, 20]"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>N°</th>
+        <th>Empresa</th>
+        <th>Linea</th>
+        <th>PlanCarrera</th>
+        <th>Fecha de Registro</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-practicas>
+      <tr>
+        <td>{{ practicas.id_practica }}</td>
+        <td>{{ practicas.empresa.nombre }}</td>
+        <td>{{ practicas.linea.nombre }}</td>
+        <td>{{ practicas.plancarrera.nombre }}</td>
+        <td>{{ practicas.fechainicio }}</td>
+        <td>{{ practicas.estado.estado }}</td>
+        <td>
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success"
+            (click)="showDialogEdit(practicas.id_practica)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger"
+            (click)="deletePractica(practicas.id_practica)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<app-registrar-empresa-forms *ngIf="modalempresa" (close)="cerrarempresa()"></app-registrar-empresa-forms>
+<!--contenedor del formulario-->
+<app-practica-forms *ngIf="modalpractica" (close)="cerrarpractica()"></app-practica-forms>
+
+

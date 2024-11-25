@@ -1,0 +1,148 @@
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal-container {
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 5px 20px; /*sangria o margen de los datos con el formulario*/
+    border-radius: 8px;
+    width: 700px; /*ancho del formulario*/
+    height: 700px; /*alto del formulario*/
+    max-width: 100%;
+    z-index: 1000; /*desvanecimiento del formulario*/
+  }
+  
+  h2 {
+    margin-top: 15px; /* Ajusta el valor para definir el margen de arriba */
+  }
+  
+  
+  
+  .modal-content {
+    margin-top: 1px; /*margen del titulo con el subtitulo*/
+    
+  }
+  
+  .section {
+    border: 1px solid #f0ad4e;
+    border-radius: 8px;
+    padding: 5px 15px; /*margen del contorno dorado con los datos o los labels*/
+    margin-top: 5px;
+  }
+  
+  .section label {
+    color: #f0ad4e;
+  }
+  
+  .row {
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 15px; /* Espacio entre columnas */
+    margin-top: 10px; /* Espacio superior entre filas */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px; /*margen entre las filas nombre, direccion, linea*/
+  }
+  
+  .column {
+    flex: 1;
+    margin-right: 50px;
+  }
+  
+  .descripcion-column {
+    flex: 2; /* Ocupa un poco más de espacio */
+    margin-right: 50px;
+  }
+  
+  .descripcion-input {
+    width: 350px; /* Ocupa todo el ancho de la columna */
+    height: 60px; /* Altura del textarea */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    resize: none; /* Desactiva el cambio de tamaño del textarea */
+  }
+  
+  .column:last-child {
+    margin-right: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 1px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 280px; /*anchura de input*/
+    padding: 10px; /*relleno o altura del input*/
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    font-size: 14px; /* Reducido tamaño de letra*/
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Columna para las opciones de estado */
+  .estado-column {
+    flex: 0; /* Menor espacio que la descripción */
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  
+  .estado-opciones {
+    display: flex;
+    align-items: left; /* Alinea los elementos verticalmente al centro */
+    gap: 15px; /* Espacio entre las etiquetas */
+  }
+  
+  .estado-opciones label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(40, 167, 69, 0.4);
+    transition: background-color 0.3s;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838; /* Color al pasar el mouse */
+  }
