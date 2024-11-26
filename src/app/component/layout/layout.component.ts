@@ -6,6 +6,7 @@ import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { Sidebar, SidebarModule } from 'primeng/sidebar';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -22,12 +23,17 @@ export class LayoutComponent {
   }
 
   sidebarVisible: boolean = false;
-
+  logout():void {
+    this.authService.logout();
+}
 
 
   items: MenuItem[] | undefined;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService, 
+  ) {}
 
   ngOnInit() {
     this.items = [

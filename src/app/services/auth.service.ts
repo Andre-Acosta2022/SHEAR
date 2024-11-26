@@ -1,52 +1,59 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, Pipe } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, pipe, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private userSubject: BehaviorSubject<any>;
-  public user: Observable<any>;
+  private LOGIN_URL = "http://localhost:8080/api/auth/login";
+  private tokenKey = 'authToken';
 
   constructor(
-    private router: Router,
-  ) {
-    let userStorage: any = localStorage.getItem('user');
-    this.userSubject = new BehaviorSubject<any>(JSON.parse(userStorage));
-    this.user = this.userSubject.asObservable();
+    private httpClient: HttpClient, 
+    private router: Router,) { }
+
+  login(username: string, password: string): Observable<any> {
+    return this.httpClient.post<any>(this.LOGIN_URL, { username, password }).pipe(
+      tap(response => {
+        if (response.token) {
+          this.setToken(response.token);
+        }
+      }),
+      catchError(error=> {
+        console.error('Login error', error);
+        throw error;
+      })
+    );
+  }
+    
+  
+private setToken(token:string):void{
+  localStorage.setItem(this.tokenKey, token);
+}
+private getToken():string |null {
+ return localStorage.getItem(this.tokenKey);
+}
+isAuthenticated(): boolean {
+  const token = this.getToken();
+  if (!token) {
+    return false;
   }
 
-  public get userValue(): any {
-    return this.userSubject.value;
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    return Date.now() < exp;
+  } catch (e) {
+    console.error('Token malformed', e);
+    return false;
   }
+}
+logout() {
+    
+  localStorage.removeItem(this.tokenKey);
+  this.router.navigate(['/login']);
 
-  login(username: string, password: string): any {
-    console.log(username, password);
-    if (username === 'admin' && password === 'admin') {
-      this.userSubject.next({
-        username: username,
-        password: password
-      });
-      localStorage.setItem('user', JSON.stringify({
-        username: username,
-        password: password
-      }));
-      this.userSubject.next({
-        username: username,
-        token: '123456789'
-      });
-      return {
-        username: username,
-        token: '123456789'
-      };
-    } else {
-      return false;
-    }
-  }
-  logout() {
-    this.userSubject.next(null);
-    localStorage.removeItem('user');
-    this.router.navigate(['/login']);
-  }
+}
 }

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './component/login/login.component';
+import { LoginComponent } from './AUTH/login/login.component';
 import { LayoutComponent } from './component/layout/layout.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ListarPracticaComponent } from './component/listar-practica/listar-practica.component';

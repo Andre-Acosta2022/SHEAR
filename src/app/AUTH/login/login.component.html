@@ -17,7 +17,7 @@
     <p-card class="p-3" [style]="{ width: '100%' }">
       <!-- Encabezado con imagen y título centrados -->
       <ng-template pTemplate="header">
-        <div class="text-center">
+        <div class="text-center" style="color: black;">
           <img
             alt="Card"
             src="04.webp"
@@ -26,7 +26,7 @@
           <h2 class="fw-bold mb-1 text-uppercase text-center">
             Iniciar Sesión
           </h2>
-          <p class="text-center text-600">
+          <p class="text-center text-600" >
             Por favor ingrese sus credenciales correspondientes
           </p>
         </div>
@@ -40,7 +40,7 @@
             <p-inputGroupAddon>
               <i class="pi pi-user"></i>
             </p-inputGroupAddon>
-            <input pInputText placeholder="Username" />
+            <input [(ngModel)]="username" pInputText placeholder="Username" style="color: blue;" />
           </p-inputGroup>
         </div>
         <div class="flex flex-column align-items-start gap-2 w-full">
@@ -49,15 +49,15 @@
             <p-inputGroupAddon>
               <i class="pi pi-key"></i>
             </p-inputGroupAddon>
-            <input pInputText placeholder="Password" />
+            <input [(ngModel)]="password" pInputText placeholder="Password" type="password" style="color:black" />
           </p-inputGroup>
         </div>
       </div>
 
       <!-- Enlace de "Olvidó su contraseña" con estilo simplificado -->
       <ng-template pTemplate="footer">
-        <p class="text-center mt-4 mb-1">
-          <a
+        <p class="text-center mt-4 mb-1" >
+          <a 
             href="#"
             (click)="showRecoverView()"
             class="text-600 no-underline hover:underline"
@@ -66,7 +66,7 @@
         </p>
 
         <div class="flex justify-content-center mt-3">
-            <button class="btn-custom">
+            <button (click)="login()" class="btn-custom">
                 <i class="pi pi-user"></i> <!-- Icono de PrimeIcons -->
                 Login
             </button>
